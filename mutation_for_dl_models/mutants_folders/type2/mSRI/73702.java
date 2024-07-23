@@ -1,0 +1,37 @@
+public int read () throws IOException {
+
+    if (currentPos < currentLineEnd) {
+
+        X1.seek (currentPos ++);
+
+        int readByte = X1.readByte ();
+
+        return readByte;
+
+    } else if (currentPos > lastPosInFile && currentLineStart < currentLineEnd) {
+
+        findPrevLine ();
+
+        if (lastChar != '\n' && lastChar != '\r') {
+
+            return '\n';
+
+        } else {
+
+            return read ();
+
+        }
+
+    } else if (currentPos < 0) {
+
+        return - 1;
+
+    } else {
+
+        findPrevLine ();
+
+        return read ();
+
+    }
+
+}

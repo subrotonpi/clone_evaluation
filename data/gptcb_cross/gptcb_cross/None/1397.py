@@ -1,0 +1,2 @@
+def run():
+    SelectAll().displayGUI()

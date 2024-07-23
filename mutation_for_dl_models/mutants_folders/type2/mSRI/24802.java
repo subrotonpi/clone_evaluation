@@ -1,0 +1,17 @@
+public int solution (int X1, int [] A) {
+
+    HashSet < Integer > hset = new HashSet < Integer > ();
+
+    for (int i = 0;
+
+    i < A.length; i ++) {
+
+        if (A [i] <= X1) hset.add (A [i]);
+
+        if (hset.size () == X1) return i;
+
+    }
+
+    return - 1;
+
+}

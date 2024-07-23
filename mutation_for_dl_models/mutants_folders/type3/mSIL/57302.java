@@ -1,0 +1,17 @@
+public static void main (String [] args,X1) {
+
+    Scanner sc = new Scanner (System.in);
+
+    int cases = sc.nextInt ();
+
+    String [] str = new String [cases];
+
+    for (int i = 0;
+
+    i < cases; i ++) {
+
+        str [i] = sc.next ();
+
+    }
+
+}

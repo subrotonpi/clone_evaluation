@@ -1,0 +1,47 @@
+public static void main (String [] args) {
+
+    String test = "The quick brown fox jumped over the lazy dog.";
+
+    int countA = 0, countO = 0, countSpace = 0, countDot = 0;
+
+    for (int X1 = 0;
+
+    X1 < test.length (); X1 ++) {
+
+        switch (test.charAt (X1)) {
+
+            case 'a' :
+
+            case 'A' :
+
+                countA ++;
+
+                break;
+
+            case 'o' :
+
+            case 'O' :
+
+                countO ++;
+
+                break;
+
+            case ' ' :
+
+                countSpace ++;
+
+                break;
+
+            case '.' :
+
+                countDot ++;
+
+                break;
+
+        }
+
+    }
+
+    System.out.printf ("%s%d%n%s%d%n%s%d%n%s%d", "A: ", countA, "O: ", countO, "Space: ", countSpace, "Dot: ", countDot);
+
+}

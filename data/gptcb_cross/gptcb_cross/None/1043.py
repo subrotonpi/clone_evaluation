@@ -1,0 +1,11 @@
+def run():
+    ws = WhiteSpace()
+    gui = ws.getGui()
+    f = tk.Tk()
+    f.title("White (OK Red) Space")
+    f.resizable(False, False)
+    f.geometry('400x200')
+    f.config(padx=100, pady=100)
+    f.pack_propagate(0)
+    f.config(menu=gui)
+    f.mainloop()

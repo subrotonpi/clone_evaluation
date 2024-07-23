@@ -1,0 +1,32 @@
+static boolean isAnagram (String a, String b) {
+
+    a = a.toLowerCase ();
+
+    b = b.toLowerCase ();
+
+    if (a.length () != b.length ()) {
+
+        return false;
+
+    }
+
+    char [] chars = a.toCharArray ();
+
+    for (char c : chars) {
+
+        int index = b.indexOf (c);
+
+        if (index != - 1) {
+
+
+        } else {
+
+            return false;
+
+        }
+
+    }
+
+    return b.isEmpty ();
+
+}

@@ -1,0 +1,21 @@
+public static final void main (String...aArgs) {
+
+    X1 ("Generating random integers in the range 1..10.");
+
+    int START = 1;
+
+    int END = 10;
+
+    Random random = new Random ();
+
+    for (int idx = 1;
+
+    idx <= 10; ++ idx) {
+
+        showRandomInteger (START, END, random);
+
+    }
+
+    X1 ("Done.");
+
+}

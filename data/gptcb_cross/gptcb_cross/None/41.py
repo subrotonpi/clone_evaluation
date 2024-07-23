@@ -1,0 +1,11 @@
+def start(primaryStage):
+    waiting_for_key = Text("Level 2 \n\n" + "Press ENTER to start a new game")
+    waiting_for_key.setTextAlignment(TextAlignment.CENTER)
+    waiting_for_key.setFont(Font(18))
+    waiting_for_key.setFill(Color.ALICEBLUE)
+    root = StackPane()
+    root.getChildren().add(waiting_for_key)
+    s = Scene(root, 320, 240, Color.BLACK)
+    primaryStage.setTitle("Test")
+    primaryStage.setScene(s)
+    primaryStage.show()

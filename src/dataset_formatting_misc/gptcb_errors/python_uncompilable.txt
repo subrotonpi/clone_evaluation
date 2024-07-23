@@ -1,0 +1,1039 @@
+def run(s): 
+    i = 2
+    while i < 50:
+        while s.getState() != 1: 
+            with s lock: 
+                try: 
+                    s.wait() 
+                except InterruptedException as e: 
+                    print(e)
+                    
+        with s lock:
+            if s.getState() == 1: 
+                print("t2", i) 
+            s.setState(2)
+            i = i + 3
+            s.notify_all()
+def next(self):
+    if not self.has_next:
+        raise StopIteration 
+    output = [self.arr[index] for index in self.ind]
+    self.has_next = False
+    for tail in range(len(self.ind) - 1, 0, -1):
+        if self.ind[tail-1] < self.ind[tail): #error here 
+            s = len(self.ind)-1
+            while self.ind[tail-1] >= self.ind[s]:
+                s -= 1
+            self.swap(ind, tail-1, s)
+            for i in range(tail, len(self.ind)-1):
+                j = len(self.ind) - 1 - (i - tail)
+                self.swap(ind, i,j)
+            self.has_next = True
+            break
+    return output
+def actionPerformed(e):
+    duration = System.currentTimeMillis() - startTime
+    progress = duration / RUN_TIME
+    linePoint = Point()
+    linePoint.x = getWidth() / 2
+    if progress < 0.5f:
+        linePoint.y = int(round(getHeight() * (progress *2)))
+    else:
+        if progress > 1f:
+            progress = 1f
+            e.getSource().stop()
+            linePoint = None
+            ballPoint = None
+        else:
+            linePoint.y = int(round(getHeight() * (progress *2)))
+            linePoint.y = getHeight() - (linePoint.y - getHeight())
+            ballPoint.y = linePoint.y
+    repaint()
+def actionPerformed (ae):
+if count < len(charsTiming):
+    highlightNextWord ()
+    ae.getSource().setInitialDelay(charsTiming[count])
+    ae.getSource().restart ()
+else:
+    reset()
+def is_between(current_month, current_day, from_month, from_day, until_month, until_day):
+  current = datetime.date(current_month, current_day)
+  from = datetime.date(from_month, from_day)
+  until = datetime.date(until_month, until_day)
+  if from <= until:
+    return from <= current and current <= until
+  else:
+    return current <= until or current >= from
+def transform(cell_old, cell_new):
+    cell_new.set_cell_comment(cell_old.get_cell_comment())
+    hash_val = cell_old.get_cell_style().hash_code()
+    if hash_val not in style_map:
+        transform(hash_val, cell_old.get_cell_style(), workbook_new.create_cell_style())
+    cell_new.set_cell_style(style_map[hash_val])
+    if cell_old.get_cell_type(==Cell.CELL_TYPE_BLANK):
+        pass
+    elif cell_old.get_cell_type(==Cell.CELL_TYPE_BOOLEAN):
+        cell_new.set_cell_value(cell_old.get_boolean_cell_value())
+    elif cell_old.get_cell_type(==Cell.CELL_TYPE_ERROR):
+        cell_new.set_cell_value(cell_old.get_error_cell_value())
+    elif cell_old.get_cell_type(==Cell.CELL_TYPE_FORMULA): 
+        cell_new.set_cell_value(cell_old.get_cell_formula())
+    elif cell_old.get_cell_type(==Cell.CELL_TYPE_NUMERIC): 
+        cell_new.set_cell_value(cell_old.get_numeric_cell_value())
+    elif cell_old.get_cell_type(==Cell.CELL_TYPE_STRING):
+        cell_new.set_cell_value(cell_old.get_string_cell_value())
+    else:
+        print("transform: Unknown cell type " + cell_old.get_cell_type())
+def compare(s1, s2):
+	s1_name_num_pair = s1.split(" ")
+	s2_name_num_pair = s2.split(" ")
+	diff = s1_name_num_pair[0].lower().casefold() <=> s2_name_num_pair[0].lower().casefold()
+	if diff==0:
+		n1 = float(s1_name_num_pair[1])
+		n2 = float(s2_name_num_pair[1])
+		return n1 <=> n2
+	return diff
+pass = "admin"
+test = input("Insert the admin pass: ")
+if pass == test:
+  print("Access granted")
+else:
+for i in range(1, 3):
+  test = input(f"You have {i} try(es): ")
+  if pass == test:
+    print("Access granted")
+    break
+  elif i == 2:
+    print("Access denied")
+    
+
+from com.ximpleware import VTDGen, VTDNav, AutoPilot, XMLModifier, VTDException
+if __name__ == "__main__":
+    vg = VTDGen()
+    if not vg.parseFile("input.xml", False):
+        return 
+    vn = vg.getNav()
+    ap = AutoPilot(vn)
+    xm = XMLModifier(vn)
+    ap.selectXPath("/*/place[@id=\"p14\" and   @initialMarking=\"2\"]/@initialMarking")
+    i = 0
+    while ((i = ap.evalXPath ()) != - 1):
+        xm.updateToken(i+1, "499")
+    xm.output("new.xml")
+
+def setCursorColor(view, color):
+    try:
+        field = TextView.class.getDeclaredField("mCursorDrawableRes")
+        field.setAccessible(True)
+        drawableResId = field.getInt(view)
+        field = TextView.class.getDeclaredField("mEditor")
+        field.setAccessible(True)
+        editor = field.get(view)
+        drawable = ContextCompat.getDrawable(view.getContext(), drawableResId)
+        drawable.setColorFilter(color, PorterDuff.Mode.SRC_IN)
+        drawables = [drawable, drawable]
+        field = editor.getClass().getDeclaredField("mCursorDrawable")
+        field.setAccessible(True)
+        field.set(editor, drawables)
+    except:
+        pass
+def read(self):
+    if (self.currentFilePos <= 0 and self.currentBufferPos < 0 and self.currentLineReadPos < 0):
+        return -1
+    if not self.lineBuffered:
+        self.fillLineBuffer()
+    if self.lineBuffered:
+        if (self.currentLineReadPos == 0):
+            self.lineBuffered = False 
+        return self.currentLine[self.currentLineReadPos--]
+    return 0
+def unzip():
+    try:
+        fin = open(_zipFile, 'rb')
+        zin = zipfile.ZipInputStream(fin)
+        ze = None
+        while (ze = zin.getNextEntry()) != None:
+            print("Decompress: Unzipping" + ze.getName ())
+            if ze.is_dir():
+                _dir_checker(ze.getName())
+            else:
+                fout = open(_location + ze.getName(), 'wb')
+                buff_out = io.BufferedWriter(fout)
+                buff = 1024
+                read = 0
+                while (read = zin.read(buffer)) != -1:
+                    buff_out.write(buffer, 0, read)
+                buff_out.close()
+                zin.closeEntry()
+                fout.close()
+        zin.close()
+        print("Unzip: Unzipping Completer. Path: " + _location)
+    except Exception as e:
+        print("Decompress: Unzip" + e)
+        print("Unzip: Unzipping failed")
+def countLines(is):
+  try:
+    lnr = LineNumberReader(InputStreamReader(is))
+    buf = [0] * 8192
+    previousN = -1
+    while (n := lnr.read(buf)) != -1:
+      previousN = n
+    ln = lnr.getLineNumber()
+    if previousN == -1:
+      return 0
+    else:
+      lastChar = buf[previousN - 1]
+      if lastChar == "\n" or lastChar == "\r":
+        return ln
+    return ln + 1
+  finally:
+    is.close()
+def paintComponent(self, g):
+    start = System.nanoTime() 
+    super().paintComponent(g) 
+    w = self.getWidth()
+    h = self.getHeight()
+    g.drawImage(background, 0, 0, self)
+    theta = 2 * math.pi * self.index / 64
+    g.setColor(Color.blue) 
+    rect.setRect(int(math.sin(theta) * w / 3 + w / 2 - RADIUS),
+                 int(math.cos(theta) * h / 3 + h / 2 - RADIUS),
+                 2 * RADIUS,
+                 2 * RADIUS)
+    g.fillOval(rect.x, rect.y, rect.width, rect.height)
+    g.setColor(Color.white)
+    if self.frameCount == FRAMES:
+        self.averageTime = self.totalTime / FRAMES
+        self.totalTime = 0
+        self.frameCount = 0
+    else:
+        self.totalTime += System.nanoTime() - start 
+        self.frameCount += 1
+    s = '{0:5.3f}'.format(self.averageTime / 1000000d)
+    g.drawString(s, 5, 16)
+ 
+public static void shuffleArray (int [] array) {
+    List < Integer > list = new ArrayList < > ();
+    for (int i : array) {
+        list.add (i);
+    }
+    Collections.shuffle (list);
+    for (int i = 0;
+    i < list.size (); i ++) {
+        array [i] = list.get (i);
+    }
+}
+
+
+#====================
+
+
+
+def solution(number): 
+    binary = bin(number) 
+    gaps = binary.split("1") 
+    biggest_gap = "" 
+    for i in range(len(binary.endswith("1") ? gaps : gaps[:-1])): 
+        if "0" in gaps[i] and len(gaps[i]) > len(biggest_gap): 
+            biggest_gap = gaps[i] 
+     return len(biggest_gap)
+def MyRunnable(expensiveObjects): 
+	# Code Here 
+
+executorService = threading.Thread(target=MyRunnable, args=(expensiveObjects,)) 
+executorService.start() 
+executorService.join(timeout=5) 
+
+print("Final: " + outputCount.get())
+def paintComponent(self, g):
+    super().paintComponent(g)
+    g2d = g as Graphics2D
+    g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, 
+                          RenderingHints.VALUE_ANTIALIAS_ON)
+    font = Font('Arial', Font.PLAIN, 15)
+    string = 'Time (s)'
+    metrics = g.getFontMetrics(font)
+    width = metrics.stringWidth(string)
+    height = metrics.getHeight()
+    g2d.setFont(font)
+    self.drawRotate(g2d, self.getWidth(), (self.getHeight()+width)//2, 270, string)
+def check(x1,y1,x2,y2,x,y)
+  if (x1 == x2)
+    return y1 < y2 ? (y1 <= y && y <= y2) : (y2 <= y && y <= y1);
+  m = (y2 - y1) / (x2 - x1)
+  r1 = x1 + m * y1
+  r2 = x2 + m * y2
+  r = x + m * y
+  return r1 < r2 ? (r1 <= r && r <= r2) : (r2 <= r && r <= r1)
+end
+def main_thread():
+    future = readPage()
+    future2 = future.thenAccept(page):
+        print(page)
+        raise IllegalArgumentException('unexpected exception')
+    ) #<----
+    future2.exceptionally(e):
+        traceback.print_exception(*e.args)
+        return None
+
+if __name__ == '__main__':
+    executor = ThreadPoolExecutor()
+    future = executor.submit(main_thread)
+    future.result()
+def onCreate(self, savedInstanceState):
+    super(self).onCreate(savedInstanceState)
+    turn new TextView(this)
+    this.setContentView(tv)
+    formatter = datetime.datetime.strptime("dd.MM.yyyy, HH:mm", "%H:%M")
+    old_time = "19.02.2018, 12:00"
+    new_time = "20.02.2018, 14:00"
+    old_date = formatter.strptime(old_time, "%d.%m.%Y, %H:%M")
+    new_date = formatter.strptime(new_time, "%d.%m.%Y, %H:%M")
+    old_long = old_date.timestamp()
+    new_long = new_date.timestamp()
+    diff = new_long - old_long
+    counter = MyCount(diff, 1000)
+    counter.start()
+ 
+public CharSequence filter (CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+    String lsStart = "";
+    String lsInsert = "";
+    String lsEnd = "";
+    String lsText = "";
+    Log.d ("debug", moPattern.toString ());
+    Log.d ("debug", "source: " + source + ", start: " + start + ", end:" + end + ", dest: " + dest + ", dstart: " + dstart + ", dend: " + dend);
+    lsText = dest.toString ();
+    if (lsText.length () > 0) {
+        lsStart = lsText.substring (0, dstart);
+        Log.d ("debug", "lsStart : " + lsStart);
+        if (source != "") {
+            lsInsert = source.toString ();
+            Log.d ("debug", "lsInsert: " + lsInsert);
+        }
+        lsEnd = lsText.substring (dend);
+        Log.d ("debug", "lsEnd   : " + lsEnd);
+        lsText = lsStart + lsInsert + lsEnd;
+        Log.d ("debug", "lsText  : " + lsText);
+    }
+    Matcher loMatcher = moPattern.matcher (lsText);
+    Log.d ("debug", "loMatcher.matches(): " + loMatcher.matches () + ", lsText: " + lsText);
+    if (! loMatcher.matches ()) {
+        return "";
+    }
+    return null;
+}
+
+
+#====================
+
+
+  
+def read(in):
+    if in.isJsonArray():
+        list_ = []
+        arr = in.getAsJsonArray()
+        for anArr in arr:
+            list_.append(read(anArr))
+        return list_
+    elif in.isJsonObject():
+        map_ = {}
+        obj = in.getAsJsonObject()
+        entitySet = obj.entrySet()
+        for entry in entitySet:
+            map_[entry.getKey()] = read(entry.getValue())
+        return map_
+    elif in.isJsonPrimitive():
+        prim = in.getAsJsonPrimitive()
+        if prim.isBoolean():
+            return prim.getAsBoolean()
+        elif prim.isString():
+            return prim.getAsString()
+        elif prim.isNumber():
+            num = prim.getAsNumber()
+            if math.ceil(num.doubleValue()) == num.longValue():
+                return num.longValue()
+            else:
+                return num.doubleValue()
+    return None
+}
+import os
+for file in os.listdir():
+	file_path = os.path.abspath(file)
+	if os.path.isfile(file_path):
+		print(file_path)
+
+}
+
+def main():    
+    numberofDays = int(input("Number of days in the period: "))
+    sharePoints = int(input("Share points on the first day: "))
+    numberofDays = validator(numberofDays)
+    outPutTablePrinter(numberofDays, sharePoints)
+
+
+#====================
+
+
+
+def solution(N): 
+    result = 0
+    while (N > 0): 
+        if N & 1 == 1: 
+            temp = 0
+            while (N>>= 1) > 0 and (N & 1 != 1):
+                temp+=1
+            result = max(result, temp)
+        else:
+            N>>= 1
+    return result
+ 
+
+#====================
+
+
+
+def getExpensesForDay(my_scanner, day):
+    expenses = int(input("Please enter the cost for " + day + ":")
+    return expenses 
+
+if __name__ == "__main__":
+    my_scanner = sys.stdin 
+    mon = getExpensesForDay(my_scanner, "Monday")
+    tues = getExpensesForDay(my_scanner, "Tuesday")
+    wed = getExpensesForDay(my_scanner, "Wednesday")
+    thurs = getExpensesForDay(my_scanner, "Thursday")
+    fri = getExpensesForDay(my_scanner, "Friday")
+    sat = getExpensesForDay(my_scanner, "Saturday")
+    sun = getExpensesForDay(my_scanner, "Sunday")
+}
+
+def isExpectedPassword(password, salt, hash):
+    Validate.notNull(password, "Password must not be null")
+    Validate.notNull(salt, "Salt must not be null")
+    Validate.notNull(hash, "Hash must not be null")
+    try:
+        passwordBytes = password.encode('utf-8')
+        all = passwordBytes + salt
+        md = SHA3.Digest512()
+        md.update(passwordBytes)
+        digest = md.digest()
+        return digest == hash
+    except UnsupportedEncodingException as e:
+        message = "Caught UnsupportedEncodingException e: {}".format(e.message)
+        LOGGER.error(message):
+    return False
+def mouseReleased(mod, loc):
+    if pressLocation is not None and dragLocation is not None:
+        pressLocation = None 
+    elif dragLocation is not None:
+    else:
+    pressLocation = None
+    dragLocation = None
+def main(args):
+    st1 = "2015-07-24T09:39:14.000Z"
+    st2 = "2015-07-24T09:45:44.000Z"
+    time1 =st1[st1.index("T")+1:st1.index(".0")]
+    time2 = st2[st2.index("T")+1:st2.index(".0")]
+    dateTime1 = datetime.datetime.strptime(time1,"%H:%M").time()
+    dateTime2 = datetime.datetime.strptime(time2,"%H:%M").time()
+    print dateTime1>dateTime2
+def solution(N):
+    result = 0
+    while N > 0:
+        if (N & 1) == 1: 
+            temp = 0
+            while (N >>= 1) > 0 and ((N & 1) != 1):
+                temp += 1
+            result = max(result,temp)
+        else:
+            N >>= 1
+    return result
+def main(args = []):
+def run(self):
+    print(self.i)
+    try:
+        self.cb.await()
+        self.i = self.i + 3
+        time.sleep(1000)
+    except InterruptedError:
+        print(traceback.format_exc())
+    except BrokenBarrierException:
+        print(traceback.format_exc())
+def start(primaryStage):
+    canvas = Canvas(width, height)
+    gc = canvas.getGraphicsContext2D()
+    scene = Scene(Group(canvas))
+    primaryStage.setScene(scene)
+    primaryStage.show()
+
+    ran = Random()
+    triangle = np.zeros((3, 2))
+    triangle[1] = [0, 0]
+    triangle[0] = [width/2, (double) height]
+    triangle[2] = [double) width, 0]
+    midPoint = Point.findMidTo(triangle[0], triangle[1], triangle[2])
+def animate(event):
+        if points > 0:
+            r = ran.nextInt(3)
+            midPoint = midPoint.findMidTo(triangle[r])
+            gc.fillOval(midPoint.getX(), midPoint.getY(), 1, 1)
+        else:
+            print("Stopping!")
+            timer.stop()
+
+    timer = Timeline(KeyFrame(Duration.millis(.1), animate))
+    timer.setCycleCount(Timeline.INDEFINITE)
+    timer.play()
+def draw (g): 
+    arrowRatio = 0.5 
+    arrowLength = 80.0 
+    stroke = g.get_stroke () 
+    endX = 350.0 
+    veeX = endX - stroke.get_line_width () * 0.5 / arrowRatio 
+    path = [] 
+    waisting = 0.5 
+    waistX = endX - arrowLength * 0.5 
+    waistY = arrowRatio * arrowLength * 0.5 * waisting 
+    arrowWidth = arrowRatio * arrowLength 
+
+    path.append((veeX - arrowLength, -arrowWidth)) 
+    path.append((waistX, -waistY)) 
+    path.append((endX, 0.0)) 
+    path.append((waistX, waistY)) 
+    path.append((veeX - arrowLength, arrowWidth)) 
+    path.append((veeX - arrowLength * 0.75, 0.0)) 
+
+    g.set_color(Color.BLUE) 
+    g.fill(path) 
+    g.set_color(Color.RED) 
+    g.draw(new Line2D.Float((50.0, 0.0, veeX - arrowLength * 0.5, 0.0)))
+def start(stage):
+    stage.setTitle("TRON Synopsis")
+    Font.loadFont(CustomFontApp.class.getResource("TRON.TTF").toExternalForm(), 10)
+    title = Label("TRON")
+    title.getStyleClass().add("title")
+    caption = Label("A sci-fi flick set in an alternate reality.")
+    caption.getStyleClass().add("caption")
+    caption.setMaxWidth(220)
+    caption.setWrapText(True)
+    caption.setTextAlignment(TextAlignment.CENTER)
+    layout = VBox(10)
+    layout.setStyle("-fx-padding: 20px; -fx-background-color: silver")
+    layout.setAlignment(Pos.CENTER)
+    layout.getChildren().setAll(title, new ImageView(new Image("http://ia.media-imdb.com/images/M/MV5BMTY5NjM2MjAwOV5BMl5BanBnXkFtZTYwMTgyMzA5.V1.SY317.jpg")), caption)
+    scene = Scene(layout)
+    scene.getStylesheets().add(getClass().getResource("custom-font-styles.css").toExternalForm())
+    stage.setScene(scene)
+    stage.show()
+def actionPerformed(self, e):
+    try:
+        is = BufferedInputStream(FileInputStream(file))
+        xd = XMLDecoder(is)
+        self.model = xd.readObject()
+        self.table.setModel(self.model)
+    except IOException as ex:
+        ex.printStackTrace()
+def inputStreamToString (inputStream):
+  newLine = os.getProperty("line.separator")
+  reader = BufferedReader(InputStreamReader(inputStream))
+  result = UTF_8
+  flag = False
+  while (line = reader.readLine()):
+    result.append(flag if newLine else "").append(line)
+    flag = True
+  return result.toString()
+def run ():
+    print ("New Communication Thread Started")
+    try: 
+        out = PrintWriter (clientSocket.getOutputStream (), True)
+        in = BufferedReader (InputStreamReader (clientSocket.getInputStream ()))
+        inputLine = in.readLine ()
+        while (inputLine != None): 
+            System.out.println ("Received: " + inputLine)
+            try: 
+                pauseCommand = Long.parseLong (inputLine) 
+                pause = pauseCommand 
+                out.println ("OK, pausing for " + inputLine + " ms")
+            except NumberFormatException: 
+                pass
+            if (inputLine.equals ("BYE")): 
+                out.println ("OK, bye!")
+                break
+            if (inputLine.equals ("STOP")): 
+                out.println ("OK, stopping!")
+                sys.exit (1) 
+        out.close ()
+        in.close ()
+        clientSocket.close ()
+    except IOException: 
+        System.err.println ("Problem with Communication Server")
+        System.exit (1)
+def onRequestPermissionsResult (self, requestCode, permissions, grantResults):
+    index = (requestCode token 16) and 0xffff
+    if index != 0:
+        index - = 1
+        who = mPendingFragmentActivityResults.get (index)
+        mPendingFragmentActivityResults.remove (index)
+        if who == None:
+            print ('Activity result delivered for unknown Fragment.')
+            return
+        frag = mFragments.findFragmentByWho (who)
+        if frag == None:
+            print ('Activity result no fragment exists for who: ' + who)
+        else:
+            frag.onRequestPermissionsResult (requestCode and 0xffff, permissions, grantResults)
+def main (args): 
+    largestSize = 4
+    array = [33, 55, 13, 46, 87, 42, 10, 34]
+    large = array[0:largestSize]
+    smallest = large[0]
+    smallestIndex = 0
+    for i in range(1, len(large)):
+        if (smallest > large[i]):
+            smallest = large[i]
+            smallestIndex = i
+
+    for i in range(len(large), len(array)):
+        if (smallest < array[i]):
+            large[smallestIndex] = array[i]
+            smallest = large[0]
+            smallestIndex = 0
+            for j in range(1, len(large)):
+                if (smallest > large[j]):
+                    smallest = large[j]
+                    smallestIndex = j
+
+
+    for j in range(0, len(large)):
+        print ("Largest 5 : " + str(large[j]))
+    print ""
+    print ("Largest is: " + str(getHighest(large)))
+def deriveCurveName(publicKey):
+ try: 
+    if isinstance(publicKey, java.security.interfaces.ECPublicKey):
+      pk = java.security.interfaces.ECPublicKey(publicKey)
+      params = pk.getParams()
+      return deriveCurveName(EC5Util.convertSpec(params, False))
+    elif isinstance(publicKey, org.bouncycastle.jce.interfaces.ECPublicKey):
+      pk = org.bouncycastle.jce.interfaces.ECPublicKey(publicKey)
+      return deriveCurveName(pk.getParameters())
+  except GeneralSecurityException:
+   raise IllegalArgumentException("Can only be used with instances of ECPublicKey (either jce or bc implementation)")
+def isBalanced(str): 
+  if len(str) < 2: 
+    return False 
+
+  result = False  
+  stack = []  
+  
+  for i in range(len(str)): 
+    char = str[i] 
+    if char not in parenthesesMapRight and char not in parenthesesMapLeft: 
+      continue
+    
+    if char in parenthesesMapLeft: 
+      stack.append(char) 
+    else: 
+      if not len(stack) == 0 and stack.pop() == parenthesesMapRight[char]: 
+        result = True 
+      else: 
+        return False 
+    
+  if len(stack) != 0: 
+    return result = False 
+  return result
+def deserialize (json, typeOfT, context):
+    jsonObject = json.get_asJsonObject ()
+    prim = (JsonPrimitive) jsonObject.get (CLASSNAME)
+    className = prim.get_asString ()
+    klass = None
+    try:
+        klass = Class.forName (className)
+    except ClassNotFoundException as e:
+        e.printStackTrace ()
+        raise JsonParseException (e.get_message ())
+    return context.deserialize (jsonObject.get (INSTANCE), klass)
+initial_numbers = [1,2]
+observable_initial = Observable.from(initial_numbers)
+subject = ReplaySubject.create()
+source = Observable.merge(observable_initial, subject)
+source.subscribe(print)
+for i in range (100):
+  subject.onNext(i)
+  
+
+arr = [0] * 5
+for i in range(5):
+    print("Enter number", (i+1), ":")
+	arr[i] = int(input())
+for i in range(5):
+	print("Number", (i+1), ": ", arr[i])
+
+def run():
+    threadName = threading.current_thread().getName()
+    try:
+        first.acquire()
+        latch.count_down()
+        print(f'{threadName} : locked first lock')
+        latch.await()
+        print(f'{threadName} : attempting to lock second lock')
+        second.acquire()
+        print(f'{threadName} : never reached')
+    except InterruptedException as e:
+        raise RuntimeError(e)
+pass = "admin" 
+maxTry = 3
+success = False
+while maxTry > 0:
+    maxTry -=1
+    test = input("Insert the admin pass: ")
+    
+    if pass != test:
+        print("You have " + str(maxTry) + " try(es): ")
+    else:
+        success = True
+        break
+        
+if success:
+    print("Access granted")
+else:
+    print("Access denied")
+
+def initData():
+   testData = [] 
+   testData.append(EventStatus("Mach-1", 1477468500000L, 1, 0)) 
+   testData.append(EventStatus("Mach-1", 1477472100000L, 2, 0)) 
+   testData.append(EventStatus("Mach-1", 1477474200000L, 5, 0)) 
+   testData.append(EventStatus("Mach-1", 1477476000000L, 3, 0))
+   testData.append(EventStatus("Mach-1", 1477479600000L, 4, 0)) 
+   testData.append(EventStatus("Mach-1", 1477486800000L, 1, 0)) 
+   testData.append(EventStatus("Mach-2", 1477465200000L, 3, 1)) 
+   testData.append(EventStatus("Mach-2", 1477472400000L, 2, 1))
+   testData.append(EventStatus("Mach-2", 1477474200000L, 5, 1)) 
+   testData.append(EventStatus("Mach-2", 1477476000000L, 2, 1))
+   testData.append(EventStatus("Mach-2", 1477479600000L, 3, 1)) 
+   testData.append(EventStatus("Mach-2", 1477486800000L, 4, 1)) 
+
+   list = [] 
+   for eventStatus in testData: 
+       if eventStatus.getName() in list: 
+           continue 
+       else: 
+           list.append(eventStatus.getName()) 
+
+   catArray = [len(list)] 
+   catArray = list.toArray(catArray)
+def gen_randoms(total, number_of_randoms, minimum_value):
+  ret = [0] * number_of_randoms
+  rand_gen = random.Random()
+  total_left = total
+  for i in range(number_of_randoms):
+    rolls_left = number_of_randoms - i
+    this_max = total_left - (rolls_left - 1) * minimum_value
+    this_min = max(minimum_value, total_left // rolls_left)
+    range_val = this_max - this_min
+    if range_val < 0:
+      raise ValueError(f"Cannot have {minimum_value} * {number_of_randoms} 
+                       < {total}")
+    rnd_value = range_val
+    for j in range(j):
+      if j * j < rolls_left:
+        rnd_val = rand_gen.randrange(0, rnd_value + 1, 1)
+    total_left -= ret[i] = rnd_value + this_min
+  random.shuffle(ret)
+  return ret
+def read():
+    try:
+        if currentPos < currentLineEnd:
+            in.seek(currentPos++)
+            readByte = in.readByte() 
+            return readByte 
+        elif currentPos > lastPosInFile and currentLineStart < currentLineEnd:
+            findPrevLine()
+            if lastChar != '\n' and lastChar != '\r':
+                return '\n'
+            else:
+                return read()
+        elif currentPos < 0:
+            return -1
+        else:
+            findPrevLine()
+            return read()
+    except IOException as e:
+        print(e)
+def addBusinessDays (date, days):
+    result = datetime.datetime(date.year, date.month, date.day)
+    result = isWeekEnd (result) ? getPreviousBusinessDate (result) : result
+    for i in range (days):
+        if isWeekEnd (result):
+            i -= 1
+        result = result + datetime.timedelta(days=1)
+    return result.date()
+def createAndShowGUI():
+    frame = tk.Tk()
+    frame.wm_title("Frame")
+    frame.geometry("800x600")
+    operationbuttons_ = tk.Frame(frame, bg='lightgreen', borderwidth=5, relief='groove')
+    readerstopbutton_ = tk.Button(operationbuttons_, text="Reader stop", font=("Geneva",12), border width=0, width=66, height=40, bg='lightblue', relief="flat")
+    readerstopbutton_.grid(row=0, column=0)
+    tk.Button(operationbuttons_, text="yCoder.com").grid(row=0, column=1)
+    operationbuttons_.pack()
+ 
+public static void printTable (String [] countries, int [] populations) {
+    if (countries.length == 0 || populations.length == 0 || countries.length != populations.length) {
+        return;
+    }
+    int longestCountry = Arrays.stream (countries).map (String :: toString).mapToInt (String :: length).max ().getAsInt ();
+    int longestPop = Arrays.stream (populations).mapToObj (Integer :: toString).mapToInt (String :: length).max ().getAsInt ();
+    for (int i = 0;
+    i < countries.length; i ++) {
+        System.out.printf ("%-" + longestCountry + "s | %" + longestPop + "d%n", countries [i], populations [i]);
+    }
+}
+
+
+#====================
+
+
+
+def start(stage):
+    noted_pane = StackPane()
+    noted_pane.setPrefSize(20,20)
+    noted_pane.setMaxSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE)
+    noted_pane.setStyle("-fx-background-color: purple;")
+    root_pane = StackPane(noted_pane)
+    root_pane.setPrefSize(400,400)
+    StackPane.setAlignment(noted_pane,Pos.BOTTOM_CENTER)
+    stage.setScene(Scene(root_pane))
+    stage.show()
+    sticky_notes_stage = Stage()
+    sticky_notes_stage.initOwner(stage)
+    sticky_notes_stage.initStyle(StageStyle.UNDECORATED)
+    sticky_notes_pane = StackPane()
+    sticky_notes_pane.setPrefSize(200, 200)
+    sticky_notes_pane.setStyle("-fx-background-color: yellow;")
+    sticky_notes_stage.setScene(Scene(sticky_notes_pane))
+    noted_pane.hoverProperty().addListener((ChangeListener<Boolean>)(observable, oldValue, newValue) -> {
+        if (newValue): 
+            sticky_notes_stage.show()
+        else:
+            sticky_notes_stage.hide()
+def run():
+  try:
+    retValue = pro.waitFor()
+    print("Command exit with return value " + str(retValue))
+    outStream.close()
+    outStream = None
+  except InterruptedException,e:
+    print e
+  except IOException,e:
+    print e
+def compare(item1, item2): 
+   return item1.title.casefold() <=> item2.title.casefold()
+}
+
+def read(file):
+  if (os.path.getsize(file) > MAX_FILE_SIZE):
+    raise FileTooBigException (file)
+  ous = None
+  ios = None
+  try:
+    buffer = bytearray(4096)
+    ous = bytearray()
+    ios = open(file, 'rb')
+    read = 0
+    while (read = ios.readinto(buffer)) > 0:
+      ous.extend(buffer[:read])
+  finally:
+    if ous: 
+      ous.close()
+    if ios:
+      ios.close()
+  return bytes(ous)
+def find_prev_line():
+	if last_char == -1:
+		in.seek(last_pos_in_file)
+		last_char = in.read_byte()
+		
+	current_line_end = current_line_start
+	
+	if current_line_end == 0:
+		current_line_end = -1
+		current_line_start = -1
+		current_pos = -1
+		return 
+	
+	file_pointer = current_line_start -1 
+	
+	while(True):
+		file_pointer -= 1 
+		if file_pointer < 0:
+			break
+		in.seek(file_pointer)
+		read_byte = in.read_byte()
+		if read_byte == 0xA and file_pointer != last_pos_in_file:
+			break
+			
+	current_line_start = file_pointer + 1
+	current_pos = current_line_start
+def after_text_changed(arg0):
+pass
+
+arg0.add_text_changed_listener(after_text_changed)
+ 
+        public void characters (char ch [], int start, int length) throws SAXException {
+            tmpElementValue = new String (ch, start, length);
+        }}
+    ;
+
+#====================
+
+
+
+def serialize(bean, jgen, provider):
+    try:
+        jgen.writeStartObject()
+        if _propertyFilterId != None:
+            serializeFieldsFiltered(bean, jgen, provider)
+        else:
+            serializeFields(bean, jgen, provider)
+        serializerListener.postSerialization(bean, jgen)
+        jgen.writeEndObject()
+    except IOException, JsonGenerationException:
+        print("Error during serialization.")
+ 
+public String longestSequenceOfChar (String str) {
+    String interimresult = "";
+    String result = "";
+    for (int i = 0;
+    i < str.length (); i ++) {
+        char ch = str.charAt (i);
+        interimresult += ch;
+        for (int j = i + 1;
+        j < str.length (); j ++) {
+            char ch1 = str.charAt (j);
+            if (ch != ch1) {
+                break;
+            }
+            interimresult += ch;
+        }
+        if (interimresult.length () > result.length ()) result = interimresult;
+        interimresult = "";
+    }
+    return result;
+}
+
+
+#====================
+
+
+
+
+def countString(s, searchKey):
+	count = ""
+	for i in range(len(s)):
+		if s[i] == searchKey:
+            count += s[i] + "\n"
+	
+	print(count + "\nNumber of Occurrence of " + searchKey + " is " + str(len(count)) + " in string " + s)
+ 
+        public int read () throws IOException {
+            return newInput.read ();
+        }}
+    ;
+
+#====================
+
+
+
+def main (*args):
+    processor = DefaultProcessor ()
+    values = [0, 4, 10, 12, 100, 108, 299, 1000, 1003, 2040, 45213, 100000, 100005, 100010, 202020, 202022, 999999, 1000000, 1000001, 10000000, 10000007, 99999999, Long.MAX_VALUE, Long.MIN_VALUE]
+    str_values = ["0", "1.30", "0001.00", "3.141592"]
+    for val in values:
+        print (str (val) + " = " + processor.getName (val))
+    for str_val in str_values:
+        print (str_val + " = " + processor.getName (str_val))
+    big_number = ""
+    for d in range (0, 66):
+        big_number += str (int (random.uniform (0, 10)))
+    big_number += "."
+    for d in range (0, 26):
+ 
+
+#====================
+
+
+
+def solution(X, A): 
+  n = len(A) 
+	
+	# if x greater than the length of array A 
+	if X > n:	 
+		return -1
+		
+	# bool array to mark the element of A 
+	# one by one 
+	m = [False]*X 
+	jumped = 0
+	
+	# check each elements of A and mark them 
+	# respective in bool array as true 
+	for i in range(n): 
+		# element should be between 1 and X 
+		# (1 and X are included) 
+		if A[i] <= X:			 
+			# If the element is not marked 
+			# earlier, then mark it and 
+			# increment jumped 
+			if m[A[i] - 1] == False:	 
+				m[A[i] - 1] = True
+				jumped += 1
+				
+				# if all the elements are jumped 
+				if jumped == X:			 
+					return i 
+	return -1
+def main(args): 
+    r = lambda: (
+        media_types = MediaTypes()
+        p = JPanel()
+        media_types.create_gui(p)
+        show_message_dialog(None, p)
+    )
+    invoke_later(r)
+def main(args): 
+    input = "(A,Name1,200), (A,Name1,200), (R,Name1,200), (A,Name2,900), (A,Name2,500)"
+    score_sets = input.split("),")
+    score_list = []
+    for score_set in score_sets: 
+        trimmed_score = score_set.strip()[1:]
+        close_brace_index = trimmed_score.find(')')
+        score_text = trimmed_score[:close_brace_index] if close_brace_index == len(trimmed_score) - 1: 
+            score_tokens = score_text.split (",")
+            score_list.append(Score(score_tokens[0], score_tokens[1], float(score_tokens[2])))
+def start(primaryStage):
+    alert = Alert (Alert.AlertType.CONFIRMATION)
+    alert.setTitle("Title")
+    alert.setHeaderText("Some Text")
+    alert.setContentText("Choose your option.")
+    buttonTypeOne = ButtonType("Yes")
+    alert.initModality(Modality.NONE)
+    buttonTypeCancel = ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE)
+    alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeCancel)
+    b = Button("close alert")
+    b.setOnAction(lambda event: 
+        for bt in alert.getDialogPane().getButtonTypes():
+            print("bt = " + bt)
+            if bt.getButtonData() == ButtonBar.ButtonData.CANCEL_CLOSE:
+                cancelButton = alert.getDialogPane().lookupButton(bt)
+                cancelButton.fire()
+                break)
+    scene = Scene(Group(b), 400, 300)
+    primaryStage.setScene(scene)
+    primaryStage.show()
+    result = alert.showAndWait()
+    if result.get() == buttonTypeOne:
+        print("one")
+    elif result.get() == buttonTypeCancel:
+        print("cancel")

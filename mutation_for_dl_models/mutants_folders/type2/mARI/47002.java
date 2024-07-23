@@ -1,0 +1,19 @@
+public ControlsB (Box box2, final Graph graph) {
+
+    X1.addActionListener (new ActionListener () {
+
+        public void actionPerformed (ActionEvent event) {
+
+            f = Integer.parseInt (f1.getText ());
+
+            g = Integer.parseInt (f2.getText ());
+
+            System.out.println (f + "  " + g);
+
+            graph.repaint ();
+
+        }}
+
+    );
+
+}

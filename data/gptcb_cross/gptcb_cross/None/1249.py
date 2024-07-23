@@ -1,0 +1,11 @@
+def actionPerformed(e):
+    width_icon = ImageIcon("LR-arrows.png")
+    scale_width = JOptionPane.showInputDialog(None,"What should the new width be?", "", JOptionPane.QUESTION_MESSAGE, width_icon, None, None)
+    height_icon = ImageIcon("UD-arrows.png")
+    scale_height = JOptionPane.showInputDialog(None,"What should the new height be?", "", JOptionPane.QUESTION_MESSAGE, height_icon, None, None)
+    x = float(scale_width)
+    y = float(scale_height)
+    new_width = int(x)
+    new_height = int(y)
+    frame.setSize(new_width, new_height)
+    scale(new_width, new_height)

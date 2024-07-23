@@ -1,0 +1,16 @@
+def main(args):
+  obj = object()
+  obj_class = object.__class__
+  start = time.time_ns()
+  s = obj.__str__()
+  direct_invoke_end = time.time_ns()
+  print(s)
+  method_lookup_start = time.time_ns()
+  method = obj_class.__getattribute__(obj, '__str__')
+  method_lookup_end = time.time_ns()
+  s = method(obj)
+  reflect_invoke_end = time.time_ns()
+  print(s)
+  print(direct_invoke_end - start)
+  print(method_lookup_end - method_lookup_start)
+  print(reflect_invoke_end - method_lookup_end)

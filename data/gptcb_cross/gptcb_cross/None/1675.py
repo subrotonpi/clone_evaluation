@@ -1,0 +1,8 @@
+name = input('Enter Your Name: ')
+age = int(input('Enter Your Age: '))
+bloodGroup = input('Enter Your BloodGroup : A/B/O only: ') 
+height = float(input('Enter Your Height in Meters: '))
+print('Name:',name)
+print('Age:',age)
+print('Blood Group:',bloodGroup)
+print('Height:',height,'m')

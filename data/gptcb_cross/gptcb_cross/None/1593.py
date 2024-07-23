@@ -1,0 +1,10 @@
+def start(stage):
+    location = getClass().getResource('Main.fxml')
+    fxml_loader = FXMLLoader(location)
+    fxml_loader.set_builder_factory(JavaFXBuilderFactory())
+    root = fxml_loader.load(location.open_stream())
+    scene = Scene(root)
+    stage.set_scene(scene)
+    main_controller = fxml_loader.get_controller()
+    main_controller.set_stage(stage)
+    main_controller.show_stage()

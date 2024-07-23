@@ -1,0 +1,27 @@
+public void printSquare (int min, int max) {
+
+    for (int i = min;
+
+    X1 <= max; i ++) {
+
+        for (int j = i;
+
+        j <= max; j ++) {
+
+            System.out.print (j);
+
+        }
+
+        for (int k = min;
+
+        k < i; k ++) {
+
+            System.out.print (k);
+
+        }
+
+        System.out.println ();
+
+    }
+
+}

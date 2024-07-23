@@ -1,0 +1,20 @@
+def main(args):
+    try:
+        url = URLBuilder()
+        print(url.toString())
+        url.setFragment("fragment")
+        print(url.toString())
+        url.setHost("host.com")
+        print(url.toString())
+        url.addPath("APath")
+        print(url.toString())
+        url.addPath("AnotherPath")
+        print(url.toString())
+        url.addQuery("query1", "param1")
+        print(url.toString())
+        url.addQuery("query 2", "param 2")
+        print(url.toString())
+        url.addQuery("file", File("Hello World.txt"))
+        print(url.toString())
+    except Throwable as t:
+        t.printStackTrace(sys.stderr)

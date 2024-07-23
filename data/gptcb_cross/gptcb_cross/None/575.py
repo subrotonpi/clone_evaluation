@@ -1,0 +1,2 @@
+def run(): 
+    whiteSpace = WhiteSpace()

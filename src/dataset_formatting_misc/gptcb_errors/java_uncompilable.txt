@@ -1,0 +1,514 @@
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/true_semantic_clones/java/prompt_2/Type_3/Gpt3D_Clone368_4.java 
+c2:
+  public static void main (String [] args) {
+    int sayThisManyTimes = 5;
+    volatile boolean saidHello = false;
+    MyThread mt = new MyThread (sayThisManyTimes, saidHello);
+    mt.start ();
+    for (int i = 0;
+    i < sayThisManyTimes; i ++) {
+        while (saidHello) {
+        }
+        System.out.println ("Hello ");
+        saidHello = true;
+    }
+}
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/true_semantic_clones/java/prompt_2/Type_3/Gpt3D_Clone85_4.java 
+c2:
+  public void start (Stage primaryStage) {
+    final HTMLEditor htmlEditor = new HTMLEditor ();
+    primaryStage.setScene (new Scene (htmlEditor));
+    primaryStage.show ();
+    Node toolBar = htmlEditor.lookup (".tool-bar");
+    while (toolBar != null) {
+      ((Pane) toolBar.getParent ()).getChildren ().remove (toolBar);
+      toolBar = htmlEditor.lookup (".tool-bar")
+    }
+}
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/true_semantic_clones/java/prompt_2/Type_4/Gpt3D_Clone328_2.java 
+c2:
+  public static void close (Statement...stmts, ResultSet...rsets) {
+    for (Statement stmt : stmts) {
+        try {
+            if (stmt != null) stmt.close ();
+        } catch (SQLException se) {
+        }
+    }
+    for (ResultSet rset : rsets) {
+        try {
+            if (rset != null) rset.close ();
+        } catch (SQLException se) {
+        }
+    }
+}
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/true_semantic_clones/java/prompt_2/Type_4/Gpt3D_Clone328_1.java 
+c2:
+  public static void close (Connection...connections, Statement...stmts, ResultSet...rsets) {
+    for (Connection conn : connections) {
+        try {
+            if (conn != null) conn.close ();
+        } catch (SQLException se) {
+        }
+    }
+    for (Statement stmt : stmts) {
+        try {
+            if (stmt != null) stmt.close ();
+        } catch (SQLException se) {
+        }
+    }
+    for (ResultSet rset : rsets) {
+        try {
+            if (rset != null) rset.close ();
+        } catch (SQLException se) {
+        }
+    }
+}
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/true_semantic_clones/java/prompt_2/Type_4/Gpt3D_Clone659_0.java 
+c2:
+  public static void main(String... args) throws Exception {
+    List<Character[]> myArray = new ArrayList<>();
+    myArray.add("string1".chars().mapToObj(c -> (char) c).toArray(Character[]::new));
+    myArray.add("string2".chars().mapToObj(c -> (char) c).toArray(Character[]::new));
+    myArray.add("string3".chars().mapToObj(c -> (char) c).toArray(Character[]::new));
+    Character[][] charArray2D = new Character[myArray.size()][];
+    charArray2D = myArray.toArray(charArray2D);
+    System.out.println(charArray2D.length);
+    StringBuilder s = new StringBuilder();
+    for (Character[] c : myArray) {
+        s.append(String.valueOf(c));
+    }
+    char[] charArray1D = s.toString().toCharArray();
+    System.out.println(charArray1D.length);
+}
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/true_semantic_clones/java/prompt_2/Type_4/Gpt3D_Clone370_3.java 
+c2:
+  public void run() {
+    volatile boolean saidHello = false;
+    for (int i=0; i < sayThisManyTimes; i++) {
+        while (! saidHello) {
+            System.out.println("Hello");
+            saidHello = true;
+        }
+        System.out.println("World!");
+        saidHello = false;
+    }
+}
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/true_semantic_clones/java/prompt_2/Type_4/Gpt3D_Clone794_3.java 
+c2:
+  public String[][] allUniqueCombinations() {
+    int n = dataStructure.keySet().size();
+    int solutions = (int) dataStructure.values()
+            .stream()
+            .mapToInt(list -> list.size())
+            .reduce(1, (x, y) -> x * y);
+    String[][] allCombinations = new String[solutions + 1][];
+    allCombinations[0] = dataStructure.keySet().toArray(new String[n]);
+    List<Integer> indices = new ArrayList<>();
+    for (Vector<String> vec : dataStructure.values()) {
+        indices.add(0);
+    }
+    int index = 0;
+    while (index != solutions) {
+        Vector<String> combination = new Vector<String>(n);
+        int j = 0;
+        for (Vector<String> vec : dataStructure.values()) {
+            combination.add(vec.get(indices.get(j)));
+            if (++indices.get(j).intValue() == vec.size()) {
+                indices.set(j, 0);
+            }
+            j++;
+        }
+        allCombinations[index + 1] = combination.stream().toArray(String[]::new);
+        index++;
+    }
+    return allCombinations;
+}
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/true_semantic_clones/java/prompt_2/Type_4/Gpt3D_Clone742_3.java 
+c2:
+  public FileVisitResult postVisitDirectory (Path directory, IOException ioException) throws IOException {if (ioException == null) {
+        Path[] subPaths = Files.list(directory).toArray(Path[]::new);
+        for (Path subPath : subPaths) {
+            Files.delete(subPath);
+        }
+        Files.delete(directory);
+        return FileVisitResult.CONTINUE;
+    }
+}
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/true_semantic_clones/java/prompt_2/Type_4/Gpt3D_Clone919_5.java 
+c2:
+  public String getNextMonth (boolean maxDate) {
+    LocalDateTime dt = LocalDateTime.of(year, monthNo + 1, 1, 0, 0);    if(maxDate) {
+        dt = dt.withDayOfMonth(dt.getMonth().length(Year.isLeap(dt.getYear())))
+    }else {
+        dt = dt.withDayOfMonth(day);
+    }
+    return dt.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+}
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/true_semantic_clones/java/prompt_2/Type_4/Gpt3D_Clone938_2.java 
+c2:
+   private static String join(String delimiter, String... parts) {    if(parts == null || parts.length == 0) {
+        return "";
+    }    String[] filteredParts = Arrays.stream(parts)
+            .filter(s -> !isEmpty(s))
+            .toArray(String[]::new);    
+    if (filteredParts.length == 0) {
+        return "";
+    }    StringJoiner joiner = new StringJoiner(delimiter);
+    Arrays.stream(filteredParts).forEach(joiner::add);    return joiner.toString();
+}
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/true_semantic_clones/java/prompt_2/Type_4/Gpt3D_Clone328_0.java 
+c2:
+  public static void close (ResultSet...rsets, Statement...stmts, Connection...connections) {
+    for (ResultSet rset : rsets) {
+        try {
+            if (rset != null) rset.close ();
+        } catch (SQLException se) {
+        }
+    }
+    for (Statement stmt : stmts) {
+        try {
+            if (stmt != null) stmt.close ();
+        } catch (SQLException se) {
+        }
+    }
+    for (Connection conn : connections) {
+        try {
+            if (conn != null) conn.close ();
+        } catch (SQLException se) {
+        }
+    }
+}
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/true_semantic_clones/java/prompt_2/Type_4/Gpt3D_Clone619_7.java 
+c2:
+  public static boolean contains (String a, String b) {
+    boolean status = true;
+    Map < char, Integer > mapA = new HashMap < > ();
+    Map < char, Integer > mapB = new HashMap < > ();
+    for (int i = 0; i < a.length(); i++) {
+        Integer val = mapA.get (a.charAt(i));
+        if (val != null) {
+            mapA.put (a.charAt(i), val + 1);
+        } else {
+            mapA.put (a.charAt(i), 1);
+        }
+    }
+    for (int j = 0; j < b.length(); j++) {
+        Integer val = mapB.get (b.charAt(j));
+        if (val != null) {
+            mapB.put (b.charAt(j), val + 1);
+        } else {
+            mapB.put (b.charAt(j), 1);
+        }
+    }
+    for (Map.Entry < char, Integer > entry : mapA.entrySet ()) {
+        if (mapB.get (entry.getKey ()) == null || entry.getValue () > mapB.get (entry.getKey ())) {
+            status = false;
+        }
+    }
+    return status;
+}
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/false_semantic_clones/java/Gpt_false_pair_3653.java 
+c2:
+ public String getName (String value) {
+    boolean negative = false;
+    if (value.startsWith ("-")) {
+        negative = true;
+        value = StringUtils.replaceSubstring (value, 0, 1)
+    }
+    int decimals = value.indexOf (".");
+    String decimalValue = null;
+    if (0 <= decimals) {
+        decimalValue = StringUtils.replaceSubstring (value, decimals + 1, value.length() - 1);
+        value = StringUtils.replaceSubstring (value, 0, decimals);
+    }
+    String name = processor.getName (value);
+    if ("".equals (name)) {
+        name = ZERO_TOKEN;
+    } else if (negative) {
+        name = MINUS.concat (SEPARATOR).concat (name);
+    }
+    if (! (null == decimalValue || "".equals (decimalValue))) {
+        String zeroDecimalValue = "";
+        for (int i = 0;
+        i < decimalValue.length (); i ++) {
+            zeroDecimalValue = zeroDecimalValue + "0";
+        }
+        if (decimalValue.equals (zeroDecimalValue)) {
+            name = name.concat (SEPARATOR).concat (UNION_AND).concat (SEPARATOR).concat ("zero").concat (SEPARATOR).concat (SCALE.getName (- decimalValue.length ()));
+        } else {
+            name = name.concat (SEPARATOR).concat (UNION_AND).concat (SEPARATOR).concat (processor.getName (decimalValue)).concat (SEPARATOR).concat (SCALE.getName (- decimalValue.length ()));
+        }
+    }
+    return name;
+}
+
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/false_semantic_clones/java/Gpt_false_pair_4229.java 
+c2:
+ public static void main (String [] args) {
+    List < String > list = new ArrayList < String > ();
+    Scanner stdin = new Scanner (System.in);
+    do {
+        System.out.println ("Current list is " + list);
+        System.out.println ("Add more? (y/n)");
+        if (stdin.next ().startsWith ("y")) {
+            System.out.println ("Enter : ");
+            list.add (stdin.nextLine ());
+        } else {
+            break;
+        }
+    } while (true);
+    stdin.close ();
+    System.out.println ("List is " + list);
+    String [] arr = list.stream ().toArray (String[]::new);
+    System.out.println ("Array is " + Arrays.toString (arr));
+}
+
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/false_semantic_clones/java/Gpt_false_pair_2316.java 
+c2:
+  public String[][] allUniqueCombinations() {
+    int n = dataStructure.keySet().size();
+    int solutions = 1;
+    for (Vector<String> vector : dataStructure.values()) {
+        solutions *= vector.size();
+    }
+    String[][] allCombinations = new String[solutions + 1][];
+    allCombinations[0] = dataStructure.keySet().toArray(new String[n]);
+    for (int i = 0; i < solutions; i++) {
+        Vector<String> combination = new Vector<String>(n);
+        int j = 1;
+        for (Vector<String> vec : dataStructure.values()) {
+            combination.add(vec.get((i / j) % vec.size()));
+            j *= vec.size();
+        }
+        allCombinations[i + 1] = combination.stream().toArray(String[]::new);
+    }
+    return allCombinations;
+}
+
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/false_semantic_clones/java/Gpt_false_pair_3741.java 
+c2:
+ public static void shuffle (Object [] a) {
+    int n = a.length;
+    for (int i = 0;
+    i < n; i ++) {
+        int r = i + (int)[Math.random () * (n - i)];
+        Object exchange = a[r];
+        a[r] = a[i];
+        a[i] = exchange;
+    }
+}
+
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/false_semantic_clones/java/Gpt_false_pair_1110.java 
+c2:
+   public static void main (String...args) {
+                          processor = new DefaultProcessor ();
+                          long [] values = new long [] {0, 4, 10, 12, 100, 108, 299, 1000, 1003, 2040, 45213, 100000, 100005, 100010, 202020, 202022, 999999, 1000000, 1000001, 10000000, 10000007, 99999999, Long.MAX_VALUE, Long.MIN_VALUE};
+                          Float [] strValues = new Float [] {0.0f, 1.30f, 0001.00f, 3.141592f};
+                          for (long val : values) {
+                           System.out.println (val + " = " + processor.getName (val));
+    }
+    for (Float strVal : strValues) {
+        System.out.println (strVal + " = " + processor.getName (strVal));
+    }
+    StringBuilder bigNumber = new StringBuilder ();
+    for (int d = 0; d < 66; d ++) {
+        bigNumber.append ((char) ((Math.random () * 10) + '0'));
+    }
+    bigNumber.append (".");
+    for (int d = 0; d < 26; d ++) {
+        bigNumber.append ((char) ((Math.random () * 10) + '0'));
+    }
+    System.out.println (bigNumber.toString () + " = " + processor.getName (bigNumber.toString ()));
+}
+
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/false_semantic_clones/java/Gpt_false_pair_3654.java 
+c2:
+ public String getName (String value) {
+    boolean negative = false;
+    if (value.startsWith ("-")) {
+        negative = true;
+        value = StringUtils.replaceRange (value, 0, 1)
+    }
+    int decimals = value.indexOf (".");
+    String decimalValue = null;
+    if (0 <= decimals) {
+        decimalValue = StringUtils.replaceRange (value, decimals + 1, value.length() - 1);
+        value = StringUtils.replaceRange (value, 0, decimals);
+    }
+    String name = processor.getName (value);
+    if ("".equals (name)) {
+        name = ZERO_TOKEN;
+    } else if (negative) {
+        name = MINUS.concat (SEPARATOR).concat (name);
+    }
+    if (! (null == decimalValue || "".equals (decimalValue))) {
+        String zeroDecimalValue = "";
+        for (int i = 0;
+        i < decimalValue.length (); i ++) {
+            zeroDecimalValue = zeroDecimalValue + "0";
+        }
+        if (decimalValue.equals (zeroDecimalValue)) {
+            name = name.concat (SEPARATOR).concat (UNION_AND).concat (SEPARATOR).concat ("zero").concat (SEPARATOR).concat (SCALE.getName (- decimalValue.length ()));
+        } else {
+            name = name.concat (SEPARATOR).concat (UNION_AND).concat (SEPARATOR).concat (processor.getName (decimalValue)).concat (SEPARATOR).concat (SCALE.getName (- decimalValue.length ()));
+        }
+    }
+    return name;
+}
+
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/false_semantic_clones/java/Gpt_false_pair_1115.java 
+c2:
+   public static void main (String...args) {
+    processor = new DefaultProcessor ();
+    List<Long> values = Arrays.asList(0L, 4L, 10L, 12L, 100L, 108L, 299L, 1000L, 1003L, 2040L, 45213L, 100000L, 100005L, 100010L, 202020L, 202022L, 999999L, 1000000L, 1000001L, 10000000L, 10000007L, 99999999L, Long.MAX_VALUE, Long.MIN_VALUE);
+    BigDecimal [] strValues = new BigDecimal [] {BigDecimal.ZERO, BigDecimal.valueOf(1.30), BigDecimal.valueOf(0001.00), BigDecimal.valueOf(3.141592)};
+    for (Long val : values) {
+        System.out.println (val + " = " + processor.getName (val));
+    }
+    for (BigDecimal strVal : strValues) {
+        System.out.println (strVal + " = " + processor.getName (strVal));
+    }
+    StringBuilder bigNumber = new StringBuilder ();
+    for (int d = 0;
+    d < 66; d ++) {
+        bigNumber.append ((char) ((Math.random () * 10) + '0'));
+    }
+    bigNumber.append (".");
+    for (int d = 0;
+    d < 26; d ++) {
+        bigNumber.append ((char) ((Math.random () * 10) + '0'));
+    }
+    System.out.println (bigNumber.toString () + " = " + processor.getName (bigNumber.toString ()));
+}
+
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/false_semantic_clones/java/Gpt_false_pair_1883.java 
+c2:
+  public static void main(String... args) throws Exception {
+    List<char[]> myArray = new ArrayList<char[]>();
+    myArray.add("string1".toCharArray());
+    myArray.add("string2".toCharArray());
+    myArray.add("string3".toCharArray());
+    char[][] charArray2D = Arrays.stream(myArray).map(char[]::clone).toArray(char[][]::new); 
+    System.out.println(charArray2D.length);
+    StringBuilder s = new StringBuilder();
+    for (char[] c : myArray) {
+        s.append(String.copyValueOf(c));
+    }
+    char[] charArray1D = s.toString().toCharArray();
+    System.out.println(charArray1D.length);
+}
+
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/false_semantic_clones/java/Gpt_false_pair_1116.java 
+c2:
+   public static void main (String...args) {
+    processor = new DefaultProcessor ();
+    byte [] values = new byte [] {0, 4, 10, 12, 100, 108, 299, 1000, 1003, 2040, 45213, 100000, 100005, 100010, 202020, 202022, 999999, 1000000, 1000001, 10000000, 10000007, 99999999, Byte.MAX_VALUE, Byte.MIN_VALUE};
+    BigDecimal [] strValues = new BigDecimal [] {BigDecimal.ZERO, BigDecimal.valueOf(1.30), BigDecimal.valueOf(0001.00), BigDecimal.valueOf(3.141592)};
+    for (byte val : values) {
+        System.out.println (val + " = " + processor.getName (val));
+    }
+    for (BigDecimal strVal : strValues) {
+        System.out.println (strVal + " = " + processor.getName (strVal));
+    }
+    StringBuilder bigNumber = new StringBuilder ();
+    for (int d = 0;
+    d < 66; d ++) {
+        bigNumber.append ((char) ((Math.random () * 10) + '0'));
+    }
+    bigNumber.append (".");
+    for (int d = 0;
+    d < 26; d ++) {
+        bigNumber.append ((char) ((Math.random () * 10) + '0'));
+    }
+    System.out.println (bigNumber.toString () + " = " + processor.getName (bigNumber.toString ()));
+}
+
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/false_semantic_clones/java/Gpt_false_pair_1112.java 
+c2:
+   public static void main (String...args) {
+    processor = new DefaultProcessor ();
+    Integer [] values = new Integer [] {0, 4, 10, 12, 100, 108, 299, 1000, 1003, 2040, 45213, 100000, 100005, 100010, 202020, 202022, 999999, 1000000, 1000001, 10000000, 10000007, 99999999, Integer.MAX_VALUE, Integer.MIN_VALUE};
+    Number [] strValues = new Number [] {0, 1.30, 0001.00, 3.141592};
+    for (int val : values) {
+        System.out.println (val + " = " + processor.getName (val));
+    }
+    for (Number strVal : strValues) {
+        System.out.println (strVal + " = " + processor.getName (strVal));
+    }
+    StringBuilder bigNumber = new StringBuilder ();
+    for (int d = 0;
+    d < 66; d ++) {
+        bigNumber.append ((char) ((Math.random () * 10) + '0'));
+    }
+    bigNumber.append (".");
+    for (int d = 0;
+    d < 26; d ++) {
+        bigNumber.append ((char) ((Math.random () * 10) + '0'));
+    }
+    System.out.println (bigNumber.toString () + " = " + processor.getName (bigNumber.toString ()));
+}
+
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/false_semantic_clones/java/Gpt_false_pair_1117.java 
+c2:
+   public static void main (String...args) {
+    processor = new DefaultProcessor ();
+    int [] values = new int [] {0, 4, 10, 12, 100, 108, 299, 1000, 1003, 2040, 45213, 100000, 100005, 100010, 202020, 202022, 999999, 1000000, 1000001, 10000000, 10000007, 99999999, Integer.MAX_VALUE, Integer.MIN_VALUE};
+    Float [] strValues = new Float [] {0.0f, 1.30f, 0001.00f, 3.141592f};
+    for (int val : values) {
+        System.out.println (val + " = " + processor.getName (val));
+    }
+    for (Float strVal : strValues) {
+        System.out.println (strVal + " = " + processor.getName (strVal));
+    }
+    StringBuilder bigNumber = new StringBuilder ();
+    for (int d = 0; d < 66; d ++) {
+        bigNumber.append ((char) ((Math.random () * 10) + '0'));
+    }
+    bigNumber.append (".");
+    for (int d = 0; d < 26; d ++) {
+        bigNumber.append ((char) ((Math.random () * 10) + '0'));
+    }
+    System.out.println (bigNumber.toString () + " = " + processor.getName (bigNumber.toString ()));
+}
+
+An exception occurred: JavaSyntaxError
+/home/egk204/projects/clone-type-iv/GptCloneBench-main/standalone/false_semantic_clones/java/Gpt_false_pair_1882.java 
+c2:
+  public static void main(String... args) throws Exception {
+    List<char[]> myArray = new ArrayList<char[]>();
+    myArray.add("string1".toCharArray());
+    myArray.add("string2".toCharArray());
+    myArray.add("string3".toCharArray());
+    char[][] charArray2D = myArray.stream().map(String::valueOf).map(String::toCharArray).toArray(char[][]::new);
+    System.out.println(charArray2D.length);
+    StringBuilder s = new StringBuilder();
+    for (char[] c : myArray) {
+        s.append(String.copyValueOf(c));
+    }
+    char[] charArray1D = s.toString().toCharArray();
+    System.out.println(charArray1D.length);
+}
+

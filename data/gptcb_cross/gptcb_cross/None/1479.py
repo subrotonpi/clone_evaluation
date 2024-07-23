@@ -1,0 +1,17 @@
+def transform(workbookOld, workbookNew, hash, styleOld, styleNew):
+    styleNew.alignment = styleOld.getAlignment()
+    styleNew.borderBottom = styleOld.getBorderBottom()
+    styleNew.borderLeft = styleOld.getBorderLeft()
+    styleNew.borderRight = styleOld.getBorderRight()
+    styleNew.borderTop = styleOld.getBorderTop()
+    styleNew.dataFormat = this.transform(workbookOld, workbookNew, styleOld.getDataFormat())
+    styleNew.fillBackgroundColor = styleOld.getFillBackgroundColor()
+    styleNew.fillForegroundColor = styleOld.getFillForegroundColor()
+    styleNew.fillPattern = styleOld.getFillPattern()
+    styleNew.font = this.transform(workbookNew, styleOld.getFont())
+    styleNew.hidden = styleOld.getHidden()
+    styleNew.indention = styleOld.getIndention()
+    styleNew.locked = styleOld.getLocked()
+    styleNew.verticalAlignment = styleOld.getVerticalAlignment()
+    styleNew.wrapText = styleOld.getWrapText()
+    this.styleMap[hash] = styleNew

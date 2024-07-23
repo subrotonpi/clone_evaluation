@@ -1,0 +1,22 @@
+public static void main (String [] args) {
+
+    ObjectMapper mapper = new ObjectMapper ();
+
+    try {
+
+        File json = new File ("test.json");
+
+
+        List < Tweet > tweets = mapper.readValue (json, tweetListType);
+
+        System.out.println ("Java objects created from JSON String:");
+
+        tweets.forEach (System.out :: println);
+
+    } catch (IOException ex) {
+
+        ex.printStackTrace ();
+
+    }
+
+}
